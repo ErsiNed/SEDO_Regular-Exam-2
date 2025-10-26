@@ -19,8 +19,13 @@ jobs:
       with:
         python-version: '3.x'
         
-    - name: Skip dependencies
-      run: echo "No dependencies to install"
+    - name: Install dependencies
+      run: |
+        echo "Installing test dependencies"
+        pip install pytest
+        pip install unittest
+        pip install nose
         
     - name: Run tests
-      run: python -m unittest discover -v
+      run: |
+        python -m unittest discover -v
